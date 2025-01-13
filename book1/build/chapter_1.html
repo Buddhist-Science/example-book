@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="th" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>เกริ่นนำ สัมมาสมาธิ นั้นเป็นไฉน - การปฏิบัติธรรมตามรอยพระบาทของพระพุทธเจ้า</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">การปฏิบัติธรรมตามรอยพระบาทของพระพุทธเจ้า</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="เกรินนำ-สัมมาสมาธิ-นันเปนไฉน"><a class="header" href="#เกรินนำ-สัมมาสมาธิ-นันเปนไฉน">เกริ่นนำ สัมมาสมาธิ นั้นเป็นไฉน</a></h1>
+<p>ในพระพุทธศาสนานี้ เมื่อได้ฟังคำสอนของพระพุทธเจ้าแล้ว ก็จะมีศรัทธาว่าคำสอนนั้นประกอบด้วยคุณธรรมความดีมีประโยชน์ต่อชีวิต การมีศรัทธาสนใจในคำสอนของพระพุทธเจ้านั้น จึงเป็นพื้นฐานของการเรียนรู้ในพระพุทธศาสนา และในการที่จะดับกิเลสและดับความทุกข์ในชีวิตนั้น จะต้องมีการปฏิบัติธรรมตามคำสอนของพระพุทธเจ้า จึงจะมีสติเห็นแจ้งและมีปัญญารู้จริงในธรรม จนสามารถบรรลุธรรมดับกิเลสและความทุกข์ได้จริง</p>
+<p>การปฏิบัติธรรมจึงถือได้ว่าเป็นหัวใจของพระพุทธศาสนา ที่ทุกคนจะต้องเพียรปฏิบัติธรรมให้เกิดเป็นความสำเร็จ ดังนั้นจึงมีความจำเป็นที่จะต้องมีการศึกษาถึงวิธีการปฏิบัติธรรมตามที่พระพุทธเจ้าสอนให้เข้าใจอย่างดีเสียก่อน จึงจะสามารถปฏิบัติธรรมได้ถูกต้องจริง คือมีสติเห็นแจ้งในการทำงานของจิตในธรรมชาติ เกิดประสบการณ์เรียนรู้เห็นจริงในธรรมนั้นๆ ดังมีความปรากฏว่า ในสมัยพุทธการนั้น เมื่อพระพุทธเจ้าได้ทรงสั่งสอนในธรรมแก่สาวกแล้ว สาวกทั้งหลายก็จะทำการศึกษาพิจารณาให้เกิดความเข้าใจที่ถูกต้อง และเมื่อสาวกทั้งหลายมีความเข้าใจแล้ว ต่างก็จะต้องแยกกันไปหาที่สงบสงัดสำหรับการปฏิบัติธรรม เพื่อให้มีประสบการณ์เรียนรู้ตามความเป็นจริง จึงเกิดการรู้แจ้งในธรรมตามที่พระพุทธเจ้าสอน และในกรณีเมื่อมีที่ติดขัดหรือมีความสงสัยในการปฏิบัติธรรมเป็นประการใด ก็จะกลับมาสอบถามความสงสัยในธรรมนั้นๆ แล้วก็กลับไปหาที่สงบสงัดเพื่อการปฏิบัติเรียนรู้ต่อไปอีกที ดังนั้นเรื่องปริยัติและปฏิบัตินั้น จึงเป็นการบวนการเรียนรู้ที่ต่อเนื่องกัน มิได้มีการแบ่งแยกส่วน ดังเช่นที่เป็นอยู่ในปัจจุบัน และการศึกษาเรียนรู้ในธรรมนั้น ก็เพื่อการปฏิบัติในธรรมที่เรียนรู้มา  ความรู้จากการเรียนในปริยัติ มิใช่เป็นการแสวงหาความรู้ในเชิงปรัชญา สำหรับการถกเถียงอวดฉลาดเพื่อการแพ้ชนะกันแม้แต่ประการใด</p>
+<p>พระพุทธเจ้าก็ได้ทรงดับขรรค์ปรินิพพานไปนานหลายพันปีแล้ว จะเหลือก็แต่พระสูตรคำสอนของพระพุทธองค์เท่านั้น ดังนั้นการศึกษาพระสูตรคำสอนของพระพุทธเจ้านั้น จึงเปรียบได้เหมือนกับการฟังคำสอนของพระพุทธองค์โดยตรง ที่พระพุทธองค์ได้ทรงสั่งสอนทั้งในสาระแห่งหลักธรรมและแนวทางการปฏิบัติธรรมควบคู่กัน ในการนี้ถ้าจะเปรียบเทียบกันแล้ว ก็เป็นเหมือนกับการเดินทางของชีวิตสู่จุดหมายอันเป็นความสำเร็จในการพัฒนาชีวิต ทั้งนี้การศึกษาปริยัติในพระสูตรคำสอนของพระพุทธเจ้า จึงเปรียบได้กับการศึกษาแผนที่สำหรับการเดินทาง ส่วนการปฏิบัติก็เหมือนกับการเดินทาง กล่าวคือ เมื่อได้ศึกษาแผนที่สำหรับการเดินทาง รู้ทิศทางและเส้นทางการเดินทางว่าเป็นอย่างไรแล้ว ก็ต้องทำการปฏิบัติคือทำการเดินทาง และเมื่อเริ่มเดินทางแล้วต่อเมื่อได้มาถึงตำแหน่งแห่งหนใดที่น่าสงสัย ก็ต้องกลับมาตรวจสอบศึกษาดูแผนที่กันใหม่อีกที จนเมื่อกำหนดเส้นทางการเดินทางต่อ การศึกษาแผนที่และการเดินทางจึงต้องควบคู่กันไปอยู่เสมอ จึงจะสามารถเดินทางต่อจนบรรลุถึงเป้าหมายได้ในที่สุด การปฏิบัติธรรมในพระพุทธศาสนานี้ก็เช่นเดียวกัน จะต้องมีทั้งปริยัติและปฏิบัติควบคู่กันไปอยู่เสมอ ทั้งปริยัติและปฏิบัตินั้น จึงเปรียบได้เหมือนกับเหรียญ ที่มีด้านหนึ่งเป็นปริยัติ และอีกด้านหนึ่งเป็นปฏิบัติ ปัจจัยทั้งสองประการนี้ต้องมีการดำเนินการควบคู่กันไป จึงจะประสบความสำเร็จได้ในที่สุด ความสำเร็จในชีวิตทั้งในทางโลกและทางธรรม ก็เป็นไปในทำนองเดียวกันเช่นนี้ทั้งสิ้น ดังนั้นการศึกษาพระสูตรอันเป็นคำสอนของพระพุทธเจ้า จึงเป็นเรื่องที่มีความสำคัญเป็นอย่างยิ่ง จะขาดเสียมิได้สำหรับนักปฏิบัติธรรมทั้งหลาย</p>
+<p>ปัจจุบันเมื่อกล่าวถึงคำว่า “การปฏิบัติธรรม” สิ่งที่เกิดควบคู่ไปกับคำว่าปฏิบัติธรรมก็คือ “การเจริญสมาธิ” หรือดังที่พูดกันทั่วไปว่า การทำสมาธินั่นเอง การทำสมาธิจึงมีความเกี่ยวข้องกับการปฏิบัติธรรม จนเกือบจะเรียกได้ว่า เป็นคำๆ เดียวกัน ในการนี้ เราจึงต้องมีความเข้าใจพื้นฐานในเรื่องการทำสมาธิกันก่อนว่า การทำสมาธินั้นมีมาก่อนสมัยพุทธกาลนานนับพันปีมาแล้ว ดังมีปรากฏว่าพวกพราหมณ์ฤๅษีโยคีนั้น ก็มีการทำสมาธิกันอย่างแพร่หลายมาก่อนพระพุทธเจ้า แต่สิ่งที่ต้องมาทำความเข้าใจกันก็คือ เขาเหล่านั้นถึงแม้จะมีความเพียรในการปฏิบัติธรรมแบบพราหมณ์มามากเพียงใดก็ตาม แต่เขาก็ไม่มีใครหรือผู้หนึ่งผู้ใดสามารถตรัสรู้และรู้แจ้งเห็นจริงในธรรม ดังที่พระพุทธองค์ได้ทรงตรัสรู้แม้แต่ประการใด การตรัสรู้ของพระพุทธเจ้าจึงเป็นการเฉพาะด้วยวิธีการปฏิบัติธรรมพิเศษที่แตกต่างจากพวกพราหมณ์ทั้งหลาย จึงทำให้เกิดการตรัสรู้เพื่อความรู้ยิ่ง ที่เกิดขึ้นเป็นครั้งแรกในโลก ดังที่พระพุทธเจ้าได้ทรงตรัสใน “อริยะปริเทศนาสูตร” ความว่า อันการปฏิบัติธรรมของพวกพราหมณ์ฤๅษีโยคี อันเป็นที่เข้าใจและนิยมกันอย่างแพร่หลายนั้น มิใช่หนทางแห่งการตรัสรู้ ดังนั้นพระองค์จึงต้องแสวงหาการปฏิบัติอันนำมาแห่งการตรัสรู้ด้วยพระองค์ท่านเอง ความว่า</p>
+<p>After I had experienced with the several Brahmin practices,</p>
+<p>As far as mere lip-reciting and rehearsal of his teaching went,
+I could speak with knowledge and assurance, and I claimed,</p>
+<p>‘I know and see’—and there were others who did likewise.</p>
+<p>“I considered: ‘It was not through mere faith alone that was declared:</p>
+<p>“By realizing it for myself with direct knowledge,
+I enter upon and dwell in this Dharma (practice).”</p>
+<p>But it occurred to me: ‘This Dharma does not lead to disenchantment, to dispassion, to cessation, to peace, to direct knowledge, to enlightenment, to Nibbāna.</p>
+<p>I am not satisfied with that Dharma of the Brahmin practice because it does not lead to enlightenment, disappointed with it, I left.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="preface.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="preface.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
